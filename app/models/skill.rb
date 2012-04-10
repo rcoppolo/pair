@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: skills
+#
+#  id          :integer         not null, primary key
+#  level       :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  user_id     :integer
+#  language_id :integer
+#
+
 class Skill < ActiveRecord::Base
   attr_accessible :level
   

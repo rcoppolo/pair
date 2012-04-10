@@ -33,4 +33,5 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :languages, :through => :skills
 
+  belongs_to :location
 end
