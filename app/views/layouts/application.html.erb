@@ -8,6 +8,7 @@
   <meta name='viewport' content='width=deivce-width, initial-scale=1.0'>
 </head>
 <body>
+	<%= render 'shared/header' %>
 	
 	<% flash.each do |key, value| %>
 		<div class="alert alert-<%= key %>"><%= value %></div>
