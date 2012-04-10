@@ -1,11 +1,12 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
-require "sprockets/railtie"
+require 'rails/all'
+# require "active_record/railtie"
+# require "action_controller/railtie"
+# require "action_mailer/railtie"
+# require "active_resource/railtie"
+# require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -63,5 +64,7 @@ module Pair
     config.assets.version = '1.0'
     
     config.assets.initialize_on_precompile = false
+    config.sass.load_paths << File.join(config.root, 'vendor')     
+    #     config.sass.load_paths += %w(vendor lib).map {|l| Rails.root.join(l,'assets','stylesheets','javascripts') }
   end
 end
