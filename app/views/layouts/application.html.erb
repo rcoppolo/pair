@@ -8,11 +8,12 @@
   <meta name='viewport' content='width=deivce-width, initial-scale=1.0'>
 </head>
 <body>
-<div class='well'> Hello </div>	
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
+	
+	<% flash.each do |key, value| %>
+		<div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
+	
+	<%= yield %>
 
 </body>
 </html>
