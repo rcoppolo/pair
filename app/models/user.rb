@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  validates_inclusion_of :rating, :in => 0..5
+  validates_inclusion_of :rating, :in => [nil,0,1,2,3,4,5]
+
+  has_many :skills
+  has_many :languages, :through => :skills
 
 end

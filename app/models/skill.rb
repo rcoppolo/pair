@@ -3,4 +3,7 @@ class Skill < ActiveRecord::Base
   
   validates_presence_of :level
   validates_inclusion_of :level, :in => 0..5
+  
+  belongs_to :user
+  belongs_to :language
 end
