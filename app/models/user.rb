@@ -1,4 +1,4 @@
-# == Schema Information
+  # == Schema Information
 #
 # Table name: users
 #
@@ -13,9 +13,9 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  rating                 :integer
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
+#  location_id            :integer
 #
 
 class User < ActiveRecord::Base
@@ -28,10 +28,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  validates_inclusion_of :rating, :in => [nil,0,1,2,3,4,5]
-
+  has_one :profile, :dependent => :destroy
+  delegate *Profile::ATTR_METHODS, :to => :profile
+  
   has_many :skills
   has_many :languages, :through => :skills
 
   belongs_to :location
+  
+  after_initialize do
+    p = self.build_profile
+    p.save
+  end
+  
 end
