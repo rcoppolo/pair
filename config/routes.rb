@@ -1,11 +1,10 @@
 Pair::Application.routes.draw do
-  get "profiles/edit"
-
-  get "profiles/update"
-
-  get "profiles/show"
-
-  devise_for :users
+  
+  devise_for :users, :path => 'accounts'
+  
+  resources :users do
+    resources :profiles, :only => [:edit, :show]  
+  end
   
   devise_scope :user do
     match "/signup" => "devise/registrations#new"
