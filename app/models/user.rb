@@ -37,8 +37,7 @@ class User < ActiveRecord::Base
   belongs_to :location
   
   after_initialize do
-    p = self.build_profile
-    p.save
+    self.create_profile
   end
   
 end
