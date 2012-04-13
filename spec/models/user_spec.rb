@@ -13,9 +13,9 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  rating                 :integer
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
+#  location_id            :integer
 #
 
 require 'spec_helper'
