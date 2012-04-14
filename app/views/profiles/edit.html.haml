@@ -1,0 +1,7 @@
+= form_for([current_user, @profile]) do |f|
+  .field
+    = f.label :github
+    %br/
+    = f.text_field :github
+  .actions
+    = f.submit "Update", :class => "small round blue button"
