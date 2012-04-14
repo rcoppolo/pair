@@ -2,6 +2,10 @@ Pair::Application.routes.draw do
   
   devise_for :users, :path => 'accounts'
   
+  devise_scope :user do
+    match "/users" => "users#index"
+  end
+  
   resources :users do
     resources :profiles, :only => [:edit, :update, :show]  
   end
