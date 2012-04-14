@@ -3,7 +3,7 @@ Pair::Application.routes.draw do
   devise_for :users, :path => 'accounts'
   
   devise_scope :user do
-    match "/users" => "users#index"
+    match "/users" => "users#index", :as => :user_root
   end
   
   resources :users do
