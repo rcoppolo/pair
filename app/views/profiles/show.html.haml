@@ -2,5 +2,6 @@
 	="Welcome to #{@user.email}'s page"
 %h4
 	="Github account: #{@github}"
-%h4	
-	=link_to "Edit", edit_user_profile_path([current_user])
+- if @user == current_user
+	%h4
+		=link_to "Edit", edit_user_profile_path([@user])

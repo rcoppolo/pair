@@ -2,14 +2,16 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   
   def edit
-    @profile = current_user.profile
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
   end
 
   def update
-    @profile = current_user.profile
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
     if @profile.update_attributes(params[:profile])
       flash[:success] = "Profile updated!"
-      redirect_to user_profile_path([current_user])
+      redirect_to user_profile_path([@user])
     else
       render 'edit'
     end
