@@ -15,6 +15,8 @@ class Profile < ActiveRecord::Base
   
   belongs_to :user
   
+  validates_length_of :github, :maximum => 50
+  
   ATTR_METHODS = [:rating, :rating=, :github, :github=]
   
   validates_inclusion_of :rating, :in => [nil,0,1,2,3,4,5]
