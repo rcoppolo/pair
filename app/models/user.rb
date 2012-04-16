@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :languages, :through => :skills
 
+  has_many :sent_proposals, :class_name => 'Proposal', :foreign_key => :proposer
+  has_many :received_proposals, :class_name => 'Proposal', :foreign_key => :proposee
+
   belongs_to :location
   
   after_create do
