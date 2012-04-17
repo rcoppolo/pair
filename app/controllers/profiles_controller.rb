@@ -20,6 +20,8 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @github = @user.github
+    @skills = @user.skills
+    
     @proposal = Proposal.new
   end
 end

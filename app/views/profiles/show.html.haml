@@ -2,6 +2,9 @@
 	= "Welcome to #{@user.email}'s page"
 %h4
 	= "Github account: #{@github}"
+.skills
+	- @skills.each do |skill|
+		= render skill
 .profile_gravatar
 	= gravatar_for current_user
 - if @user == current_user
