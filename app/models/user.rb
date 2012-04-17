@@ -43,4 +43,8 @@ class User < ActiveRecord::Base
     self.create_profile
   end
   
+  def pending_proposal?(user)
+    self.sent_proposals.find_by_proposee_id(user.id)
+  end
+  
 end
