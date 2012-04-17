@@ -7,6 +7,7 @@ gem 'faker', '1.0.1'
 # gem 'bootstrap-will_paginate', '0.0.5'
 gem 'devise', '2.0.4'
 gem 'haml'
+gem 'thin'
 
 group :development do
   gem 'sqlite3', '1.3.5'

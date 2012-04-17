@@ -1,0 +1,9 @@
+%h1 Sent Proposals
+%ul
+	- @sent_proposals.each do |sent_proposal|
+		= render sent_proposal
+
+%h1 Received Proposals
+%ul
+	- @received_proposals.each do |received_proposal|
+		= render received_proposal

@@ -1,0 +1,4 @@
+- if current_user == proposal.proposer
+	%li= link_to proposal.proposee.email, user_profile_path(proposal.proposee.id, proposal.proposee.profile)
+- else
+	%li= link_to proposal.proposer.email, user_profile_path(proposal.proposer.id, proposal.proposer.profile)

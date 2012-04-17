@@ -1,1 +1,5 @@
-%li= link_to user.email, user_profile_path(user,user.profile)
+.user
+	= gravatar_for(user)
+	%h3= link_to user.email, user_profile_path(user,user.profile)
+	%h4= link_to user.github, "http://www.github.com/#{user.github}"
+	%h4= user.rating

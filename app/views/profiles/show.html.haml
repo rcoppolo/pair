@@ -1,7 +1,15 @@
 %h3
-	="Welcome to #{@user.email}'s page"
+	= "Welcome to #{@user.email}'s page"
 %h4
-	="Github account: #{@github}"
+	= "Github account: #{@github}"
+.profile_gravatar
+	= gravatar_for current_user
 - if @user == current_user
 	%h4
-		=link_to "Edit", edit_user_profile_path([@user])
+		= link_to "Edit", edit_user_profile_path([@user])
+- else
+	- unless current_user.pending_proposal?(@user)
+		%h4
+			= form_for @proposal do |f|
+				= f.hidden_field :proposee_id, :value => @user.id
+				= f.submit "Have a pear with me!"

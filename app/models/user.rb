@@ -34,10 +34,17 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :languages, :through => :skills
 
+  has_many :sent_proposals, :class_name => 'Proposal', :foreign_key => :proposer_id
+  has_many :received_proposals, :class_name => 'Proposal', :foreign_key => :proposee_id
+
   belongs_to :location
   
   after_create do
     self.create_profile
+  end
+  
+  def pending_proposal?(user)
+    self.sent_proposals.find_by_proposee_id(user.id)
   end
   
 end
