@@ -3,8 +3,13 @@
 %h4
 	= "Github account: #{@github}"
 .skills
+	%h3 My Skillz
 	- @skills.each do |skill|
 		= render skill
+	- if @user == current_user
+		%h4
+			= link_to "Add Skill", new_skill_path 
+	
 .profile_gravatar
 	= gravatar_for current_user
 - if @user == current_user

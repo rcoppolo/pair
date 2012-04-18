@@ -1,5 +1,7 @@
 Pair::Application.routes.draw do
-  
+
+  resources :skills, :except => [:show, :index]
+
   resources :proposals, :only => [:index, :create]
 
   devise_for :users, :path => 'accounts'

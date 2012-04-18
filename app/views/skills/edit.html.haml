@@ -1,0 +1,7 @@
+= form_for(@skill) do |f|
+  .field
+    = f.label :level
+    = f.text_field :level
+  .actions
+    = f.submit "Update", :class => "small round blue button"
+= button_to "Delete", skill_path(@skill), :method => :delete

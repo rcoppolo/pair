@@ -1,0 +1,9 @@
+= form_for(@skill) do |f|
+	.field
+		= f.label :language
+		= select :language, :id, @languages.map{ |l| [l.name, l.id] }
+	.field
+		= f.label :level
+		= f.text_field :level
+	.actions
+		= f.submit "Create", :class => "small round blue button"

@@ -7,6 +7,7 @@ gem 'faker', '1.0.1'
 # gem 'bootstrap-will_paginate', '0.0.5'
 gem 'devise', '2.0.4'
 gem 'haml'
+gem "haml-rails", "~> 0.3.4"
 # gem 'thin'
 
 group :development do

@@ -11,7 +11,7 @@
 #
 
 class Skill < ActiveRecord::Base
-  attr_accessible :level
+  attr_accessible :level, :language_id
   
   validates_presence_of :level
   validates_inclusion_of :level, :in => 0..5

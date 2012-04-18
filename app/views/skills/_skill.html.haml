@@ -1,5 +1,7 @@
 .skill
 	%h4
-		= skill.language.name
-	%h4	
-		= skill.level
+		= "#{skill.language.name}: "
+		- skill.level.times do
+			&#9733;
+- if current_user == @user
+	= link_to "Edit this skill", edit_skill_path(skill) 
